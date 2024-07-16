@@ -1,0 +1,78 @@
+{% extends "navbar.html" %}
+{% block title %}
+Add Hospital Information
+{% endblock title %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-4">
+    <div class="display-4 text-center text-info mb-3">Add Hospital Data</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <h4 class="text-center text-success mt-3">Covid Care Center</h4>
+                <div class="card-body bg-light">
+                    <form action="/addhospitalinfo" method = "post">
+                        {% include "message.html" %}
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="hcode" placeholder="Enter hospital code" value="" required>
+                        </div>
+               
+                        <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="hname" placeholder="Enter the hospital name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control mt-2" name="normalbeds" placeholder="Normal Beds Available" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control mt-2" name="hicubeds" placeholder="H.I.C.U Beds Available" value="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" class="form-control mt-2" name="icubeds" placeholder="I.C.U Beds Available" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control mt-2" name="vbeds" placeholder="Ventilater Beds Available" value="" required>
+                        </div>
+                        <br>
+                        <button class="btn btn-info mb-3" type="submit">Add</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="static/assets/img/download.jpg" class="img-fluid rounded-start" style="width: 470px; height: 470px;">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body bg-dark">
+                      <h5 class="card-title text-center bg-primary text-white">Hospital Data</h5>
+                      <div class="card bg-dark" style="width: 28rem;">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Hospital Code : <b>{{postdata.hcode}}</b></li>
+                          <li class="list-group-item">Hospital Name : <b>{{postdata.hname}}</b></li>
+                          <li class="list-group-item">H.I.C.U Beds Available : <b>{{postdata.normalbeds}}</b></li>
+                          <li class="list-group-item">I.C.U Beds Available : <b>{{postdata.hicubeds}}</b></li>
+                          <li class="list-group-item">Ventilator Beds Available : <b>{{postdata.icubeds}}</b></li>
+                          <li class="list-group-item">Ventilator Beds Available : <b>{{postdata.vbeds}}</b></li>
+                          <li class="list-group-item"><a href="/hedit/{{postdata.id}}" ><i class="fa-solid fa-pen-to-square"></i></a>
+                          <a class="ml-4" href="/hdelete/{{postdata.id}}" ><i class="fa-solid fa-trash-can"></i></a>
+                        </li>
+                          
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

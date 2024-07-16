@@ -1,0 +1,43 @@
+{% extends "navbar.html" %}
+
+{% block title %}Available Beds{% endblock title %}
+
+{% block body %}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-dark">
+        <thead>
+          <h3 class="text-center text-white bg-dark">Available Beds</h3>
+          <tr>
+            <th scope="col">Hospital Code</th>
+            <th scope="col">Hospital Name</th>
+            <th scope="col">Normal Bed</th>
+            <th scope="col">HICU Bed</th>
+            <th scope="col">ICU Bed</th>
+            <th scope="col">Ventilator Bed</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for post in available_beds %}
+          <tr>
+            <td>{{ post.hcode }}</td>
+            <td>{{ post.hname }}</td>
+            <td>{{ post.normalbeds }}</td>
+            <td>{{ post.hicubeds }}</td>
+            <td>{{ post.icubeds }}</td>
+            <td>{{ post.vbeds }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock body %}
